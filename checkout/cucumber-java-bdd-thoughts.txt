@@ -73,6 +73,7 @@ Can use * in place of Given, When, Then, And and But.
 Stateless: Each scenario must make sense and be able to be executed independently of
 any other scenario.
 
+Some test scenarios
 ----
 
 Scenario: Buyer Registration Button
@@ -84,7 +85,8 @@ Scenario: Buyer Registration populating mandatory fields
 	Given that the user has been prompted to enter basic details
 	When they populate every mandatory field
 	And they click register
-	Then they will receive a verification email
+	Then they will be directed to email verification info page
+	And they will receive a verification email
 
 Scenario: Buyer Registration not populating mandatory fields
 	Given that the user has been prompted to enter basic details
@@ -97,6 +99,7 @@ Scenario: Buyer Verification email
 	When they click verify link on email
 	Then they are directed to the website and informed of successful registration
 
+----
 
 
 
