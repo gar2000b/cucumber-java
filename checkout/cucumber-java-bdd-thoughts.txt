@@ -1,0 +1,102 @@
+The Cucumber for Java Book & BDD thoughts.
+
+Other developers may have already innocently
+started to build more code on top of those bad ideas, making it unlikely that
+the codebase will ever reflect the business domain correctly.
+
+We need a kind of filter to protect our codebase from these misunderstood
+ideas.
+
+The idea of automated acceptance tests originates in extreme programming 1
+(XP), specifically in the practice of test-driven development 2 (TDD).
+
+Red, Green Refactor in TDD. Outside-in development in BDD.
+
+Captures stakeholder requirements.
+
+It’s sometimes said
+that unit tests ensure you build the thing right, whereas acceptance tests
+ensure you build the right thing.
+
+Many
+software projects suffer from low-quality communication between the domain
+experts and programmers on the team.
+
+Notice how the test is specified as examples of the way we want the system
+to behave in particular scenarios. Using examples like this has an unexpect-
+edly powerful effect in enabling people to visualize the system before it has
+been built.
+
+Acceptance tests written in this style become more than just tests; they become
+executable specifications.
+
+Living Documentation.
+
+In a mature test suite, the step definition itself will probably just
+be one or two lines of code that delegate to a library of support code, specific
+to the domain of your application, that knows how to carry out common tasks
+on the system. Sometimes that may involve using an automation library, like
+the browser automation library Selenium, to interact with the system itself.
+
+If the code in the step definition executes without error, Cucumber proceeds
+to the next step in the scenario.
+
+When the team members write their acceptance tests collaboratively, they
+can develop their own ubiquitous language for talking about their problem
+domain. This helps them avoid misunderstandings.
+
+Ubiquitous Language is the term Eric Evans uses in Domain Driven Designfor the practice of building up a common, rigorous language between developers and users.
+
+“The hardest single part of building a software system is deciding precisely what
+to build.”
+
+To actually express the behavior we want, each feature contains several sce-
+narios. Each scenario is a single concrete example of how the system should
+behave in a particular situation. If you add together the behavior defined by
+all of the scenarios, that’s the expected behavior of the feature itself.
+
+Scenarios all follow the same pattern:
+1. Get the system into a particular state.
+2. Poke it (or tickle it, or...).
+3. Examine the new state.
+
+So, we start with a context, go on to describe an action, and then finally check
+that the outcome was what we expected. Each scenario tells a little story
+describing something that the system should be able to do.
+
+Given, When, Then
+
+And, But: equivalent in cucumber.
+
+Can use * in place of Given, When, Then, And and But.
+
+Stateless: Each scenario must make sense and be able to be executed independently of
+any other scenario.
+
+----
+
+Scenario: Buyer Registration Button
+	Given that the user wishes register with mini-bit trade to become a buyer
+	When they click register on the home page
+	Then they will be prompted to enter basic details
+
+Scenario: Buyer Registration populating mandatory fields
+	Given that the user has been prompted to enter basic details
+	When they populate every mandatory field
+	And they click register
+	Then they will receive a verification email
+
+Scenario: Buyer Registration not populating mandatory fields
+	Given that the user has been prompted to enter basic details
+	When they populate optional fields only
+	And they click register
+	Then they will be prompted to enter details into mandatory fields before proceeding
+
+Scenario: Buyer Verification email
+	Given that the user has registered successfully and received email
+	When they click verify link on email
+	Then they are directed to the website and informed of successful registration
+
+
+
+
