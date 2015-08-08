@@ -1,4 +1,11 @@
 Feature: Checkout
+	----
+	This feature is all about checking out items
+	through the checkout.
+	
+	It is also to prove that we can span mulitple lines (including spaces)
+	until the next Gherkin keyword is encountered.
+	----
 
   Scenario: Checkout a banana
     Given the price of a "banana" is 40c
@@ -15,13 +22,13 @@ Feature: Checkout
       | 1     | 40    |
       | 2     | 80    |
 
+  @current
   Scenario: Two bananas scanned separately
     Given the price of a "banana" is 40c
     When I checkout 1 "banana"
     And I checkout 1 "banana"
     Then the total price should be 80c
 
-  @current
   Scenario: A banana and an apple
     Given the price of a "banana" is 40c
     And the price of a "apple" is 25c
