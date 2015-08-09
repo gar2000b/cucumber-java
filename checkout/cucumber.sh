@@ -1,8 +1,8 @@
 #!/bin/bash
-javac -cp "jars/*" src/step_definitions/*.java src/implementation/*.java
+javac -cp "jars/*" src/test/java/step_definitions/CheckoutSteps.java src/main/java/implementation/*.java
 
-java -cp "jars/*:.:src" cucumber.api.cli.Main \
--p progress --snippets camelcase -g step_definitions features 
+java -cp "jars/*:.:src/test/java:src/test/resources:src/main/java" cucumber.api.cli.Main \
+-p progress --snippets camelcase -g step_definitions src/test/resources/step_definitions 
 
 # Other Example Tags:
 #

@@ -101,5 +101,8 @@ Scenario: Buyer Verification email
 
 ----
 
+Whether you choose to drive
+your acceptance tests from Cucumber scenarios or simple JUnit tests, there’s
+no escaping the fact that you’re going to need to write some code eventually.
 
 
