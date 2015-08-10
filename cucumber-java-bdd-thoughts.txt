@@ -105,4 +105,28 @@ Whether you choose to drive
 your acceptance tests from Cucumber scenarios or simple JUnit tests, there’s
 no escaping the fact that you’re going to need to write some code eventually.
 
+@Given("I have (\\d+) cucumbers? in my basket") - question mark modifier makes plural optional.
+
+@When("I (?:visit|go to) the homepage") - non capturing groups for e.g:
+When I visit the homepage
+When I go to the homepage
+
+Anchors: ^ and end with a $. used to tie down each
+end of the regular expression to the beginning and end of the string that they
+match on.
+
+Cucumber scenario states:
+
+• Failed
+• Pending
+• Undefined
+• Skipped
+• Passed
+
+
+
+
+
+
+
 

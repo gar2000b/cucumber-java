@@ -1,7 +1,7 @@
 Feature: ATM
 	---
 	
-	This feature allows folk to transfer funds to / from different aacount types
+	This feature allows folk to transfer funds to / from different account types
 	
 	---
 	
